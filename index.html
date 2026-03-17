@@ -3,38 +3,53 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>我的影片網頁</title>
+        <title>精緻小巧影片網頁</title>
         <style>
             body {
-                font-family: Arial, sans-serif;
+                margin: 0;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 100vh;
-                margin: 0;
-                background-color: #072e27; /* 你的專屬深綠色 */
+                min-height: 100vh;
+                background-image: url('BG.jpg');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                padding: 20px;
             }
+
             .video-container {
-                width: 100%;
-                max-width: 600px; /* 限制最大寬度，電腦上才不會太寬 */
-                height: 250px; /* 你可以調整這個數值，讓高度更小 */
-                overflow: hidden; /* 確保影片超出部分被修剪 */
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                width: 90%; /* 在小螢幕上佔 85% 寬，讓四周有留白 */
+                max-width: 450px; /* --- 關鍵：縮小電腦版的最大寬度 --- */
+                height: auto;
+                overflow: hidden; /* 改回 hidden，配合圓角比較乾淨 */
+                border-radius: 15px;
+                background-color: rgba(0, 0, 0, 0.6);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                rgba(255, 255, 255, 0.2);
             }
 
             video {
                 width: 100%;
-                height: 100%; /* 填滿容器高度 */
-                object-fit: cover; /* 關鍵！影片會像背景圖一樣填滿，不會變形 */
+                height: auto; /* 保持比例 */
+                display: block;
+                /* 如果你之後要在下方加表格圖，這裡可以用 border-radius: 15px 15px 0 0; */
+                border-radius: 15px;
+            }
+
+            /* 如果之後有放表格圖，設定在這邊 */
+            .content-table img {
+                width: 100%;
+                height: auto;
                 display: block;
             }
         </style>
     </head>
     <body>
-        <div class="video-wrapper">
-            <video width="100%" autoplay muted loop playsinline>
-                <source src="test.mp4" type="video/mp4" />
+        <div class="video-container">
+            <video autoplay muted loop playsinline>
+                <source src="1.mp4" type="video/mp4" />
                 您的瀏覽器不支援影片播放。
             </video>
         </div>
